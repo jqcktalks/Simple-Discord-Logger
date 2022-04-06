@@ -22,6 +22,8 @@ client.on('messageDelete', async (message) => {
 });
 
 client.on('messageUpdate', async (oldMessage, newMessage) => {
+    if(oldMessage.content === newMessage.content) return;
+    
     const channel = client.channels.cache.get(channelID);
     const Embed = new MessageEmbed()
         .setAuthor(`✏️  Message Edited`)
